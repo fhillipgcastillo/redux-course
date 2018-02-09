@@ -4,7 +4,6 @@ import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import {bindActionCreators} from "redux";
 import {updateCurrent} from "./reducers/todo";
 
 
@@ -28,9 +27,14 @@ class App extends Component {
   }
 };
 
-
-const mapDispatchToProps = (dispatch) => bindActionCreators({updateCurrent}, dispatch);
+/*
+const mapDispatchToProps = {updateCurrent};
 const mapStateToProps = (state) => state;
 const connectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-
 export default connectedApp;
+*/
+
+export default connect(
+  (state)=>state,
+  {updateCurrent}
+)(App);
