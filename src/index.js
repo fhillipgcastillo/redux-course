@@ -4,17 +4,20 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import store from "./store";
+import {updateCurrent} from "./reducers/todo";
 
+
+const todoChangeHandler = (val)=> store.dispatch(updateCurrent(val));
 const render = ()=>{
   const state = store.getState();
-  ReactDOM.render(<App {...state}/>, document.getElementById('root'));
+  ReactDOM.render(
+    <App
+      todos={state.todos}
+      currentTodo={state.currentTodo}
+      changeCurrent={todoChangeHandler}
+    />, document.getElementById('root'));
 }
+
 render();
-
 store.subscribe(render);
-
-setTimeout(()=>{
-  store.dispatch({type:"TODO_ADD", payload:{id:4, name:"todo test", isComplete: false}})
-}, 1500);
-
 registerServiceWorker();
