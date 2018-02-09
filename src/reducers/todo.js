@@ -4,7 +4,7 @@ const initialState = {
     {id:2, name:"Load State through the store", isComplete: true},
     {id:3, name:"handle state changes with redux", isComplete: false},
   ],
-  currentTodo: "hello test"
+  currentTodo: ""
 };
 
 const CURRENT_UPDATE = "CURRENT_UPDATE";
