@@ -3,7 +3,7 @@
     {"id":1, "name":"Configure ...", "isComplete": true},
     {"id":2, "name":"Start server ...", "isComplete": true},
     {"id":3, "name":"Load Data", "isComplete": false},
-    {"id":3, "name":"Add Record", "isComplete": false},
-    {"id":3, "name":"Update Record", "isComplete": false}
+    {"id":4, "name":"Add Record", "isComplete": false},
+    {"id":5, "name":"Update Record", "isComplete": false}
   ]
 }
