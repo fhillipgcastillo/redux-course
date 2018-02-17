@@ -19,8 +19,7 @@ class TodoList extends Component {
   componentDidMount(){
     this.props.fetchTodos()
   };
-  render(){
-    console.log(this.props);
+render(){
     return (
       <div className="todo-list">
         <ul>

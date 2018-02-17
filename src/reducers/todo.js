@@ -62,7 +62,6 @@ const FILTER_COMPLETED = "completed";
 
 /*Reducer or Action Mapper*/
 export const getVisibleTodos = (todos, filter) => {
-  console.log('todos and filter', `${FILTER_VISIBLE == filter}`);
     switch(filter){
       case FILTER_VISIBLE:
         return todos.filter(t => !t.isComplete )
