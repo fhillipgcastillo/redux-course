@@ -1,20 +1,27 @@
-import {getTodos, createTodo, updateTodo} from "../lib/todoServices";
+import {getTodos, createTodo, updateTodo, destroyTodo} from "../lib/todoServices";
 import {showMessage} from "./messages";
+
 const initialState = {
   todos: [],
   currentTodo: ""
 };
 
+/* Constant states types*/
 const CURRENT_UPDATE = "CURRENT_UPDATE";
 export const TODOS_LOAD = "TODOS_LOAD";
 export const TODO_ADD = "TODO_ADD";
 export const TODO_REPLACE = "TODO_REPLACE";
+export const TODO_REMOVE = "TODO_REMOVE";
 
+/* action creators*/
 export const updateCurrent = (val) => ({type:CURRENT_UPDATE, payload: val});
 export const loadTodos = (todos) => ({type:TODOS_LOAD, payload: todos});
 export const addTodo = (todo) => ({type:TODO_ADD, payload: todo});
 export const replaceTodo =  (todo) => ({type:TODO_REPLACE, payload: todo});
+export const removeTodo = (id) => ({type:TODO_REMOVE, payload: id});
 
+
+/*Action Dispatchers*/
 export const fetchTodos = () => {
   return (dispatch) => {
     dispatch(showMessage('Loading Todos...'));
@@ -22,6 +29,7 @@ export const fetchTodos = () => {
       .then( todos => dispatch(loadTodos(todos)))
   }
 };
+
 export const saveTodo = (name) => {
   return (dispatch) => {
     dispatch(showMessage('Saving Todo'));
@@ -29,6 +37,7 @@ export const saveTodo = (name) => {
       .then( res => dispatch(addTodo(res)))
   }
 };
+
 export const toggleTodo = (id) => {
   return (dispatch, getState) => {
     dispatch(showMessage('Todo updated'));
@@ -38,7 +47,17 @@ export const toggleTodo = (id) => {
     updateTodo(toggled)
       .then(res => dispatch(replaceTodo(res)));
   }
-}
+};
+
+export const deleteTodo = (id) => {
+  return (dispatch, getState) => {
+    dispatch(showMessage('Removing todo'));
+    destroyTodo(id)
+      .then(() => dispatch(removeTodo(id)));
+  }
+};
+
+/*Reducer or Action Mapper*/
 export default (state = initialState, action) => {
   switch (action.type) {
     case TODO_ADD:
@@ -50,9 +69,13 @@ export default (state = initialState, action) => {
     case TODO_REPLACE:
       return {
         ...state,
-        todos: state.todos.map( 
+        todos: state.todos.map(
           t =>
             t.id === action.payload.id ? action.payload : t)}
+    case TODO_REMOVE:
+      return {...state,
+        todos: state.todos.filter(t => t.id !== action.payload)
+      }
     default:
       return state
   }
