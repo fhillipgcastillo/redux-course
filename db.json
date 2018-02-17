@@ -39,6 +39,11 @@
       "name": "asdsd",
       "isComplete": false,
       "id": 8
+    },
+    {
+      "name": "Check all finiched todos",
+      "isComplete": false,
+      "id": 9
     }
   ]
 }
