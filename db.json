@@ -13,17 +13,17 @@
     {
       "id": 3,
       "name": "Load Data",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
       "name": "Add Record",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 5,
       "name": "Update Record",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "name": "New Todo",
