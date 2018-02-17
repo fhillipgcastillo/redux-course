@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import Message from './components/Message';
+import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -14,11 +16,17 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React with redux</h1>
         </header>
-        <div className="Todo-App">
-          <Message />
-          <TodoForm />
-          <TodoList />
-        </div>
+        <BrowserRouter>
+          <div className="Todo-App">
+            <Message />
+            <TodoForm />
+            <Route path="/:filter?" render={ ({match}) => (
+              <TodoList filter={match.params.filter}/>
+            )}>
+            </Route>
+            <Footer />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }

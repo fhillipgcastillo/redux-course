@@ -29,6 +29,11 @@
       "name": "Check all finiched todos",
       "isComplete": true,
       "id": 9
+    },
+    {
+      "name": "Something new",
+      "isComplete": false,
+      "id": 10
     }
   ]
 }

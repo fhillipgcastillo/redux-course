@@ -57,7 +57,22 @@ export const deleteTodo = (id) => {
   }
 };
 
+const FILTER_VISIBLE = "active";
+const FILTER_COMPLETED = "completed";
+
 /*Reducer or Action Mapper*/
+export const getVisibleTodos = (todos, filter) => {
+  console.log('todos and filter', `${FILTER_VISIBLE == filter}`);
+    switch(filter){
+      case FILTER_VISIBLE:
+        return todos.filter(t => !t.isComplete )
+      case FILTER_COMPLETED:
+        return todos.filter(t => t.isComplete )
+      default:
+        return todos
+    }
+};
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case TODO_ADD:
