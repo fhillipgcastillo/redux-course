@@ -1,8 +1,11 @@
-import {TODO_ADD, TODOS_LOAD, TODO_REPLACE, TODO_REMOVE} from "./todo";
-const MESSAGE_SHOW = "MESSAGE_SHOW";
+/*constants*/
+import {
+  MESSAGE_SHOW,
+  TODO_ADD, TODOS_LOAD, TODO_REPLACE, TODO_REMOVE
+} from "../constants";
 
 /*the action creator*/
-export const showMessage = (msg) => ({type:MESSAGE_SHOW, payload: msg});
+import {showMessage} from '../actions';
 
 /*reducer*/
 export default (state="", action) => {

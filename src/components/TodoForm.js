@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {updateCurrent, saveTodo} from "../reducers/todo";
+import {
+  updateCurrent
+} from '../actions';
+import { saveTodo } from "../reducers/todo";
 
 class TodoForm extends Component {
   handleInputChange = (event)=>{

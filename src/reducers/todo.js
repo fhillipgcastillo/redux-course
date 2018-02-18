@@ -1,27 +1,30 @@
 import {getTodos, createTodo, updateTodo, destroyTodo} from "../lib/todoServices";
-import {showMessage} from "./messages";
+import {showMessage} from "../actions";
+/* Constant states types*/
+import {
+  CURRENT_UPDATE,
+  TODOS_LOAD,
+  TODO_ADD,
+  TODO_REPLACE,
+  TODO_REMOVE
+} from  '../constants';
+
+/* action creators*/
+import {
+  updateCurrent,
+  loadTodos,
+  addTodo,
+  replaceTodo,
+  removeTodo,
+} from '../actions';
 
 const initialState = {
   todos: [],
   currentTodo: ""
 };
 
-/* Constant states types*/
-const CURRENT_UPDATE = "CURRENT_UPDATE";
-export const TODOS_LOAD = "TODOS_LOAD";
-export const TODO_ADD = "TODO_ADD";
-export const TODO_REPLACE = "TODO_REPLACE";
-export const TODO_REMOVE = "TODO_REMOVE";
 
-/* action creators*/
-export const updateCurrent = (val) => ({type:CURRENT_UPDATE, payload: val});
-export const loadTodos = (todos) => ({type:TODOS_LOAD, payload: todos});
-export const addTodo = (todo) => ({type:TODO_ADD, payload: todo});
-export const replaceTodo =  (todo) => ({type:TODO_REPLACE, payload: todo});
-export const removeTodo = (id) => ({type:TODO_REMOVE, payload: id});
-
-
-/*Action Dispatchers*/
+/*Action Dispatchers or Reducers*/
 export const fetchTodos = () => {
   return (dispatch) => {
     dispatch(showMessage('Loading Todos...'));
