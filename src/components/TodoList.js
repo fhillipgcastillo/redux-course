@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchTodos, toggleTodo, deleteTodo, getVisibleTodos} from "../reducers/todo";
+import {fetchTodos, toggleTodo, deleteTodo} from "../actions";
+import {getVisibleTodos} from '../reducers/todo';
 
 const TodoItem = ({id, name, isComplete, toggleTodo, deleteTodo}) => (
   <li>

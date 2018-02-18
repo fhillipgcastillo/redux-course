@@ -1,19 +1,28 @@
-import {
-  CURRENT_UPDATE,
-  TODOS_LOAD,
-  TODO_ADD,
-  TODO_REPLACE,
-  TODO_REMOVE,
-  MESSAGE_SHOW,
-} from '../constants';
+export {updateCurrent} from './todoForm.actions'
+export {
+  loadTodos ,
+  addTodo ,
+  replaceTodo ,
+  removeTodo
+} /*as creators */ from './todo.action.creators'
+export {showMessage} from './message.actions'
+export {
+  fetchTodos,
+  saveTodo,
+  toggleTodo,
+  deleteTodo
+} from './todo.actions';
 
-// todos actions
-export const updateCurrent = (val) => ({type:CURRENT_UPDATE, payload: val});
-export const loadTodos = (todos) => ({type:TODOS_LOAD, payload: todos});
-export const addTodo = (todo) => ({type:TODO_ADD, payload: todo});
-export const replaceTodo =  (todo) => ({type:TODO_REPLACE, payload: todo});
-export const removeTodo = (id) => ({type:TODO_REMOVE, payload: id});
+/*
+export {
+  action: {
+    creators: { //*.dispatchers or .action.js
+      customName: (newData) => ({type:ACTION_TYPE_NAME, payload: newData_or_logic})
+      ...
+    },
+    dispatchers: { //*.actions
 
-
-//message action ccreators
-export const showMessage = (msg) => ({type:MESSAGE_SHOW, payload: msg});
+    }
+  }//end action
+}//end export
+*/

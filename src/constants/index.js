@@ -1,8 +1,14 @@
-export const CURRENT_UPDATE = "CURRENT_UPDATE";
-export const TODOS_LOAD = "TODOS_LOAD";
-export const TODO_ADD = "TODO_ADD";
-export const TODO_REPLACE = "TODO_REPLACE";
-export const TODO_REMOVE = "TODO_REMOVE";
 
+export {
+  CURRENT_UPDATE,
+  TODOS_LOAD,
+  TODO_ADD,
+  TODO_REPLACE,
+  TODO_REMOVE,
+  MESSAGE_SHOW,
+} from './actionTypes';
 
-export const MESSAGE_SHOW = "MESSAGE_SHOW";
+export {
+  FILTER_VISIBLE,
+  FILTER_COMPLETED
+} from './todoFilters';
