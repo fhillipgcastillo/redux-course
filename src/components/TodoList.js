@@ -37,6 +37,7 @@ render(){
   }
 }
 
+// this bellow will be the container for TodoList which will import the user at the end
 export default connect(
   (state, ownProps) => ({todos: getVisibleTodos(state.todo.todos, ownProps.filter)}),
   {fetchTodos, toggleTodo, deleteTodo}
