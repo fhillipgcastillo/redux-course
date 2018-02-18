@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 export default (props) => (
   <div>
-    <Link to="/">All</Link>
-    <Link to="/active">Active</Link>
-    <Link to="/completed">Completed</Link>
+    <Link to="/todos">All</Link>
+    <Link to="/todos/active">Active</Link>
+    <Link to="/todos/completed">Completed</Link>
   </div>
 );
